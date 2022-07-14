@@ -6,7 +6,7 @@ Various *nix process tools
 
 Tool to test out [signals](https://en.wikipedia.org/wiki/Signal_(IPC)). Program will capture signals and print out the received signal.
 
-e.g., 
+For example, 
 
 ```bash
 $ ./signals.py
@@ -41,7 +41,7 @@ optional arguments:
   -h, --help  show this help message and exit
 ```
 
-e.g., 
+For example, 
 
 ```bash
 $ ./pid_watch.py 94352 95133
