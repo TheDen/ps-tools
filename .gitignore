@@ -1,0 +1,6 @@
+# temporary
+.netrwhist
+*~
+.DS_STORE
+*.pyc
+*.bak
