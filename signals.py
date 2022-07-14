@@ -24,7 +24,7 @@ def signal_handler(signum, frame):
 def print_signals(signals):
     print("List of signals:")
     for sig in set(signals):
-        print(f"{sig:<2}: {sig.name}")
+        print(f"{sig::<2} {sig.name}")
     print("")
 
 
