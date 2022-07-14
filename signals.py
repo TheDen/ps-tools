@@ -10,7 +10,7 @@ def print_pid(pid):
 
 
 def print_info(pid):
-    info = f"""Interpreter: {sys.executable}"\n\nKeyboard combinations for signal inputs:"
+    info = f"""Interpreter: {sys.executable}\n\nKeyboard combinations for signal inputs:
      CTRL + c (^C) for SIGINT
      CTRL + \ (^\) for SIGQUIT
      CTRL + z (^z) for SIGTSTP\n\nTo kill this process run: kill -9 {pid}\n"""
