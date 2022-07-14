@@ -35,26 +35,22 @@ def watch_pid(pid):
     print(f"PID ended: {pid}")
 
 
-def signal_handler(sig, frame):
-    pool.close()
-    poo.join()
-    sys.exit(0)
-
-
-def main():
-    parser = argparse.ArgumentParser(description="Watch process IDs")
-    parser.add_argument(
-        "process_ids",
-        type=int,
-        nargs="+",
-        help="Process IDs",
-    )
-
-    args = parser.parse_args()
-    pool = mp.Pool(mp.cpu_count())
-    pool.map(watch_pid, args.process_ids)
-    signal.signal(signal.SIGINT, signal_handler, pool)
+def ignore_control_c():
+    signal.signal(signal.SIGINT, signal.SIG_IGN)
 
 
 if __name__ == "__main__":
-    main()
+
+    parser = argparse.ArgumentParser(description="Watch process IDs")
+    parser.add_argument(
+        "process_ids", type=int, nargs="+", help="Process IDs", metavar="Process ID"
+    )
+
+    args = parser.parse_args()
+    pool = mp.Pool(mp.cpu_count(), initializer=ignore_control_c)
+    try:
+        pool.map(watch_pid, args.process_ids)
+    except KeyboardInterrupt:
+        pool.close()
+        pool.terminate()
+        pool.join()
