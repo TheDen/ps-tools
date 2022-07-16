@@ -1,10 +1,10 @@
 # 	ps-tools
 
-Various \*nix process tools
+Various \*nix process tools.
 
 # signals.py
 
-Tool to test out [signals](https://en.wikipedia.org/wiki/Signal_(IPC)). Program will capture signals and print out the received signal.
+Tool to test out [IPC signals](https://en.wikipedia.org/wiki/Signal_(IPC)). Program will capture signals and print out the received signal.
 
 For example, 
 
@@ -17,7 +17,7 @@ Keyboard combinations for signal inputs:
      CTRL + \ (^\) for SIGQUIT
      CTRL + z (^z) for SIGTSTP
 
-To kill this process run: kill -9 74974
+To kill this process, in another shell run: kill -9 74974
 
 List of signals:
 1: SIGHUP
